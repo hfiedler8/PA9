@@ -33,6 +33,9 @@ public class ContactList {
     }
 
     public Person[] getContactByRange(String start, String end) {
+        if (start.compareTo(end)>0){
+            throw new IllegalArgumentException();
+        }
         ArrayList<Person> inRange = new ArrayList<>();
         for (int i = 0; i< contacts.size();i++){
             if (contacts.get(i).getName().compareTo(start)>=0 && contacts.get(i).getName().compareTo(end)<0 ){
