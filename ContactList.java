@@ -61,15 +61,17 @@ public class ContactList {
 
     public String[] fetchAllPhoneNumbers() {
         ArrayList<String> numbersSorted = new ArrayList<String>();
+
         for (int i = 0; i<contacts.size();i++){
             for (String num : contacts.get(i).getPhoneNumbers()){
-                if (!numbersSorted.contains(num)){
                     numbersSorted.add(num);
-                }
+
             }
-        }Collections.sort(numbersSorted);
+        }
+        Collections.sort(numbersSorted);
         String[] numsSorted = new String[numbersSorted.size()];
-        numsSorted = numbersSorted.toArray(numsSorted);
+        Set<String> set = new HashSet<>(numbersSorted);
+        numsSorted = set.toArray(numsSorted);
         return numsSorted;
     }
 }
