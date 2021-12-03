@@ -35,6 +35,8 @@ public class ContactList {
     public Person[] getContactByRange(String start, String end) {
         if (start.compareTo(end)>=0){
             throw new IllegalArgumentException();
+        }if (start == null ||end==null){
+            throw new IllegalArgumentException();
         }
         ArrayList<Person> inRange = new ArrayList<>();
         for (int i = 0; i< contacts.size();i++){
@@ -43,7 +45,6 @@ public class ContactList {
             }
         }Person[] namesSorted = new Person[inRange.size()];
         namesSorted = inRange.toArray(namesSorted);
-
         return namesSorted;
     }
 
