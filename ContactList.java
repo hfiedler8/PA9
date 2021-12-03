@@ -33,7 +33,15 @@ public class ContactList {
     }
 
     public Person[] getContactByRange(String start, String end) {
-        return null;
+        ArrayList<Person> inRange = new ArrayList<>();
+        for (int i = 0; i< contacts.size();i++){
+            if (contacts.get(i).getName().compareTo(start)>=0 && contacts.get(i).getName().compareTo(end)<0 ){
+                inRange.add(contacts.get(i));
+            }
+        }Person[] namesSorted = new Person[inRange.size()];
+        namesSorted = inRange.toArray(namesSorted);
+
+        return namesSorted;
     }
 
     public boolean deleteContact(String name) {
