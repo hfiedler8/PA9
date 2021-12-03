@@ -51,11 +51,12 @@ public class ContactList {
     }
 
     public String[] fetchAllNames() {
-        ArrayList<String> namesSorted = new ArrayList<String>();
+        String[] namesSorted = new String[contacts.size()];
         for (int i = 0;i<contacts.size();i++){
-            namesSorted.add(contacts.get(i).getName());
+            namesSorted[i]=contacts.get(i).getName();
         }
-        return null;
+        Arrays.sort(namesSorted);
+        return namesSorted;
     }
 
     public String[] fetchAllPhoneNumbers() {
