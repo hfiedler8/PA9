@@ -60,6 +60,16 @@ public class ContactList {
     }
 
     public String[] fetchAllPhoneNumbers() {
-        return null;
+        ArrayList<String> numbersSorted = new ArrayList<String>();
+        for (int i = 0; i<contacts.size();i++){
+            for (String num : contacts.get(i).getPhoneNumbers()){
+                if (!numbersSorted.contains(num)){
+                    numbersSorted.add(num);
+                }
+            }
+        }Collections.sort(numbersSorted);
+        String[] numsSorted = new String[numbersSorted.size()];
+        numsSorted = numbersSorted.toArray(numsSorted);
+        return numsSorted;
     }
 }
